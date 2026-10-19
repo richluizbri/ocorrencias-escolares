@@ -9,20 +9,20 @@
   --line: #dadde3;
   --fg: #232a35;
   --muted: #6a7280;
-  --accent: #333b47;
-  --accent-hover: #232a33;
+  --accent: #3a5576;
+  --accent-hover: #2f4762;
   --accent-fg: #ffffff;
-  --accent-soft: #eceef1;
-  --tone-low: #9aa1ab;
-  --tone-mid: #5f6875;
-  --tone-high: #9b4a42;
-  --tone-high-soft: #f4ecea;
-  --tone-pending: #8a929d;
-  --tone-progress: #5f6875;
-  --tone-done: #39414c;
-  --bar-1: #c9ced6;
-  --bar-2: #8a929d;
-  --bar-3: #444c58;
+  --accent-soft: #e5eaf0;
+  --tone-low: #8a929e;
+  --tone-mid: #a4844a;
+  --tone-high: #a5463d;
+  --tone-high-soft: #f6eae8;
+  --tone-pending: #a4844a;
+  --tone-progress: #4f6a8a;
+  --tone-done: #5c7d6a;
+  --bar-1: var(--tone-pending);
+  --bar-2: var(--tone-progress);
+  --bar-3: var(--tone-done);
   --danger-fg: #ffffff;
   --backdrop: rgba(24, 30, 40, 0.45);
   --shadow: 0 1px 2px rgba(20, 26, 36, 0.06);
@@ -40,20 +40,20 @@
     --line: #313741;
     --fg: #e3e6eb;
     --muted: #9aa2ad;
-    --accent: #d3d8df;
-    --accent-hover: #e6e9ee;
+    --accent: #93a9c4;
+    --accent-hover: #aabbd1;
     --accent-fg: #15181d;
-    --accent-soft: #2a3039;
-    --tone-low: #6f7782;
-    --tone-mid: #a9b0ba;
-    --tone-high: #d08a80;
-    --tone-high-soft: #2f2322;
-    --tone-pending: #7d8590;
-    --tone-progress: #a9b0ba;
-    --tone-done: #dfe3e8;
-    --bar-1: #3a414c;
-    --bar-2: #7d8590;
-    --bar-3: #c9ced6;
+    --accent-soft: #263140;
+    --tone-low: #8b939e;
+    --tone-mid: #c9a66a;
+    --tone-high: #d98479;
+    --tone-high-soft: #35211f;
+    --tone-pending: #c9a66a;
+    --tone-progress: #93a9c4;
+    --tone-done: #8fb39e;
+    --bar-1: var(--tone-pending);
+    --bar-2: var(--tone-progress);
+    --bar-3: var(--tone-done);
     --danger-fg: #1c1210;
     --backdrop: rgba(0, 0, 0, 0.6);
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -69,20 +69,20 @@
   --line: #313741;
   --fg: #e3e6eb;
   --muted: #9aa2ad;
-  --accent: #d3d8df;
-  --accent-hover: #e6e9ee;
+  --accent: #93a9c4;
+  --accent-hover: #aabbd1;
   --accent-fg: #15181d;
-  --accent-soft: #2a3039;
-  --tone-low: #6f7782;
-  --tone-mid: #a9b0ba;
-  --tone-high: #d08a80;
-  --tone-high-soft: #2f2322;
-  --tone-pending: #7d8590;
-  --tone-progress: #a9b0ba;
-  --tone-done: #dfe3e8;
-  --bar-1: #3a414c;
-  --bar-2: #7d8590;
-  --bar-3: #c9ced6;
+  --accent-soft: #263140;
+  --tone-low: #8b939e;
+  --tone-mid: #c9a66a;
+  --tone-high: #d98479;
+  --tone-high-soft: #35211f;
+  --tone-pending: #c9a66a;
+  --tone-progress: #93a9c4;
+  --tone-done: #8fb39e;
+  --bar-1: var(--tone-pending);
+  --bar-2: var(--tone-progress);
+  --bar-3: var(--tone-done);
   --danger-fg: #1c1210;
   --backdrop: rgba(0, 0, 0, 0.6);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -251,7 +251,8 @@ body {
     color: var(--muted);
   }
   .tile.alert-on {
-    border-color: var(--line);
+    background: var(--tone-high-soft);
+    border-color: var(--tone-high);
   }
   .tile.alert-on .tile-num,
   .tile.alert-on .tile-label {
@@ -397,6 +398,7 @@ body {
     color: var(--fg);
   }
   .badge.is-high {
+    background: var(--tone-high-soft);
     color: var(--tone-high);
   }
   .motivo-cat {
@@ -471,7 +473,7 @@ body {
   .cat-bar span {
     display: block;
     height: 100%;
-    background: var(--bar-2);
+    background: var(--accent);
     border-radius: 999px;
   }
 
@@ -796,12 +798,10 @@ body {
 .tone-pending { color: var(--tone-pending); }
 .tone-progress { color: var(--tone-progress); }
 .tone-done { color: var(--tone-done); }
-.dot.tone-low,
-.dot.tone-pending { background: transparent; box-shadow: inset 0 0 0 1.5px currentColor; }
-.dot.tone-progress { background: linear-gradient(90deg, currentColor 50%, transparent 50%); box-shadow: inset 0 0 0 1.5px currentColor; }
+
 
 .row-low { --stripe: transparent; }
-.row-mid { --stripe: transparent; }
+.row-mid { --stripe: var(--tone-mid); }
 .row-high { --stripe: var(--tone-high); }
 
 .modal-md { max-width: 720px; }
